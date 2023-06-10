@@ -52,7 +52,7 @@ public class ProjectController {
         List<ProjectDTO> listOfProjects = projectService.listAllProjectDetails();
         return ResponseEntity.ok(new ResponseWrapper("Projects are successfully retrieved",listOfProjects, HttpStatus.OK));
     }
-    @PostMapping("/manage/complete{code}")
+    @PutMapping("/manage/complete{code}")
     public ResponseEntity<ResponseWrapper> managerCompleteProject(@PathVariable String code){
         projectService.complete(code);
         return ResponseEntity.ok(new ResponseWrapper("Project completed",HttpStatus.OK));
