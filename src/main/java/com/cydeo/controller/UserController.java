@@ -1,6 +1,7 @@
 package com.cydeo.controller;
 
 import com.cydeo.annotation.DefaultExceptionMessage;
+import com.cydeo.annotation.ExecutionTime;
 import com.cydeo.dto.ResponseWrapper;
 import com.cydeo.dto.UserDTO;
 import com.cydeo.exception.TicketingProjectException;
@@ -27,6 +28,7 @@ public class UserController {
     @GetMapping
     @RolesAllowed({"Manager","Admin"})
     @Operation(summary = "Get users")
+    @ExecutionTime
     public ResponseEntity<ResponseWrapper> getUsers(){
         List<UserDTO> listDTO = userService.listAllUsers();
         return ResponseEntity.ok(
